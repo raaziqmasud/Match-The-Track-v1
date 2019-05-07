@@ -96,9 +96,38 @@ let rollover3f = false;
 let rollover4f = false;
 let rollover5f = false;
 let rollover6f = false;
+
+//trap queen variable
+let draggingg = false;
+let dragging2g = false;
+let dragging3g = false;
+let dragging4g = false;
+let dragging5g = false;
+let dragging6g = false;
+let rolloverg = false;
+let rollover2g = false;
+let rollover3g = false;
+let rollover4g = false;
+let rollover5g = false;
+let rollover6g = false;
+
+//my hitta variable
+let draggingh = false;
+let dragging2h = false;
+let dragging3h = false;
+let dragging4h = false;
+let dragging5h = false;
+let dragging6h = false;
+let rolloverh = false;
+let rollover2h = false;
+let rollover3h = false;
+let rollover4h = false;
+let rollover5h = false;
+let rollover6h = false;
 // general variables
 var x, x2, x3, x4, x5, x6, y, y2, y3, y4, y5, y6, wid, hei, wid2, hei2;
 
+//offsets
 var offsetX, offsetY;
 var offsetX2, offsetY2;
 var offsetX3, offsetY3;
@@ -141,6 +170,20 @@ var offsetX3f, offsetY3f;
 var offsetX4f, offsetY4f;
 var offsetX5f, offsetY5f;
 var offsetX6f, offsetY6f;
+
+var offsetXg, offsetYg;
+var offsetX2g, offsetY2g;
+var offsetX3g, offsetY3g;
+var offsetX4g, offsetY4g;
+var offsetX5g, offsetY5g;
+var offsetX6g, offsetY6g;
+
+var offsetXh, offsetYh;
+var offsetX2h, offsetY2h;
+var offsetX3h, offsetY3h;
+var offsetX4h, offsetY4h;
+var offsetX5h, offsetY5h;
+var offsetX6h, offsetY6h;
 
 function preload() {
   logo = loadImage('Get-Hip-Logo.png');
@@ -356,6 +399,10 @@ function setup() {
   ey6 = windowHeight / 2 + 200
   fx6 = windowWidth / 2 - 350
   fy6 = windowHeight / 2 + 200
+  gx6 = windowWidth / 2 - 350
+  gy6 = windowHeight / 2 + 200
+  hx6 = windowWidth / 2 - 350
+  hy6 = windowHeight / 2 + 200
   // head coordinates
   x5 = windowWidth / 2 - 350
   y5 = windowHeight / 2 + 200
@@ -369,7 +416,15 @@ function setup() {
   ey5 = windowHeight / 2 -200
   fx5 = windowWidth / 2 - 350
   fy5 = windowHeight / 2 -200
+  gx5 = windowWidth / 2 - 350
+  gy5 = windowHeight / 2 -200
+  hx5 = windowWidth / 2 - 350
+  hy5 = windowHeight / 2 -200
   // wrong album
+  hx4 = windowWidth / 2 - 350
+  hy4 = windowHeight / 2 
+  gx4 = windowWidth / 2 - 350
+  gy4 = windowHeight / 2
   x4 = windowWidth / 2 - 350
   y4 = windowHeight / 2 
   bx4 = windowWidth / 2 - 350
@@ -383,6 +438,10 @@ function setup() {
   fx4 = windowWidth / 2 - 350
   fy4 = windowHeight / 2 
   //wrong head coordinates
+  hx3 = windowWidth / 2 - 350
+  hy3 = windowHeight / 2
+  gx3 = windowWidth / 2 - 350
+  gy3 = windowHeight / 2
   fx3 = windowWidth / 2 - 350
   fy3 = windowHeight / 2
   ex3 = windowWidth / 2 - 350
@@ -396,6 +455,10 @@ function setup() {
   bx3 = windowWidth / 2 - 350
   by3 = windowHeight / 2
   //first right album coordinate
+  hx2 = windowWidth / 2 - 350
+  hy2 = windowHeight / 2 -200
+  gx2 = windowWidth / 2 - 350
+  gy2 = windowHeight / 2 -200
   fx2 = windowWidth / 2 - 350
   fy2 = windowHeight / 2 -200
   ex2 = windowWidth / 2 - 350
@@ -409,6 +472,10 @@ function setup() {
   bx2 = windowWidth / 2 - 350
   by2 = windowHeight / 2 - 200
   //right head coordinate (b is second song, c is thride, etc)
+  hx = windowWidth / 2 -350
+  hy = windowHeight / 2 + 200
+  gx = windowWidth / 2 -350
+  gy = windowHeight / 2 + 200
   fx = windowWidth / 2 -350
   fy = windowHeight / 2 + 200
   ex = windowWidth / 2 -350
@@ -509,7 +576,7 @@ function draw() {
   }
 
   else if (tracking == 4) {
-    fact1();
+    fact2();
     button2.hide();
     button.hide();
     button3.hide();
@@ -545,7 +612,7 @@ function draw() {
     button8.hide();
   }
   else if (tracking == 7) {
-    fact2();
+    fact3();
     button2.hide();
     button.hide();
     button3.hide();
@@ -621,6 +688,154 @@ function draw() {
     button7.hide();
     button8.hide();
   }
+
+  else if (tracking == 14) {
+    p6();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.show();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 15) {
+    p6a();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.show();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 16) {
+    fact6();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 17) {
+    p7();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.show();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 18) {
+    p7a();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.show();
+    button7.hide();
+    button8.hide();
+  }
+
+  else if (tracking == 19) {
+    fact7();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 20) {
+    p8();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.show();
+    button8.hide();
+  }
+  else if (tracking == 21) {
+    p8a();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.show();
+    button8.hide();
+  }
+
+  else if (tracking == 22) {
+    fact8();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  else if (tracking == 23) {
+    p9();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.show();
+  }
+  else if (tracking == 24) {
+    p9a();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.show();
+  }
+
+  else if (tracking == 25) {
+    fact9();
+    button2.hide();
+    button.hide();
+    button3.hide();
+    button4.hide();
+    button5.hide();
+    button6.hide();
+    button7.hide();
+    button8.hide();
+  }
+  // else if (tracking == 26) {
+  //   conc();
+  //   fact9.hide();
+  //   button2.hide();
+  //   button.hide();
+  //   button3.hide();
+  //   button4.hide();
+  //   button5.hide();
+  //   button6.hide();
+  //   button7.hide();
+  //   button8.hide();
+  // }
 }
 
 //////////INTRO
@@ -834,7 +1049,7 @@ var dis2 = dist(x, y, depx, depy)
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Bubble
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -1082,7 +1297,7 @@ textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Bubble
 
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -1177,7 +1392,7 @@ ellipse(windowWidth-10, windowHeight-30, 20)
   text('Album', artx, hi)
 }
 //CARDI FACT
-function fact1() {
+function fact2() {
   background(g)
   button2.hide();
   button.hide();
@@ -1401,7 +1616,7 @@ function p3() {
 
 ////////// 1/2 and Bubble
 
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -1651,7 +1866,7 @@ textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
 
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -1746,7 +1961,7 @@ translate(30, 0)
   text('Album', artx, hi)
 }
 //HOV FACT
-function fact2() {
+function fact3() {
   background(g)
   button2.hide();
   button.hide();
@@ -1971,7 +2186,7 @@ function p4() {
 
 ////////// 1/2 and Progress Bubbles
 
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -2217,13 +2432,13 @@ function p4a() {
   noStroke();
   textAlign(LEFT);
   textSize(15)
-  text('Press Play for Audio \nDrag Artist Bubble to Circle', 10, 45)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
 
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
 
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -2315,7 +2530,7 @@ noStroke();
   fill(g);
   textSize(40)
   // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
-  text('Artist', artx, hi)
+  text('Album', artx, hi)
 }
 //kendrick FACT
 function fact4() {
@@ -2337,8 +2552,8 @@ function fact4() {
   rect(nx, ny, 250, 40, 10);
   fill(g);
   noStroke();
-  textSize(20);
-  text('PRESS To Continue', nx, ny);
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
 
 console.log(mouseY)
 
@@ -2537,7 +2752,7 @@ function p5() {
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -2782,12 +2997,12 @@ function p5a() {
   noStroke();
   textAlign(LEFT);
   textSize(15)
-  text('Press Play for Audio \nDrag Artist Bubble to Circle', 10, 45)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
 
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -2900,8 +3115,8 @@ function fact5() {
   rect(nx, ny, 250, 40, 10);
   fill(g);
   noStroke();
-  textSize(20);
-  text('PRESS To Continue', nx, ny);
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
 
 console.log(mouseY)
 
@@ -2966,7 +3181,7 @@ function p6() {
  
 
   ///////////////AUDIO PLAY VISUAL
-  completion = motto.currentTime() / motto.duration();
+  completion = thriftsh.currentTime() / thriftsh.duration();
   fill(g)
   rect(windowWidth / 2 + 350, 300, 200, 5)
   noStroke()
@@ -2977,43 +3192,43 @@ function p6() {
   ///////////////////Object Drag
   //////HEADS
   //right head (drake)
-  var d = dist(mouseX, mouseY, dx, dy)
+  var d = dist(mouseX, mouseY, ex5, ey5)
   if (d < wid / 2) {
-    rolloverd = true;
+    rollover5e = true;
     console.log('u r in bubble')
   }
   else {
-    rolloverd = false;
+    rollover5e = false;
   }
-  if (draggingd) {
-    dx = mouseX + offsetXd;
-    dy = mouseY + offsetYd;
+  if (dragging5e) {
+    ex5 = mouseX + offsetX5e;
+    ey5 = mouseY + offsetY5e;
   }
 
 
   //////////////// wrong head
-  var d2 = dist(mouseX, mouseY, dx5, dy5)
+  var d2 = dist(mouseX, mouseY, ex3, ey3)
   if (d2 < wid / 2) {
-    rollover5d = true;
+    rollover3e = true;
   }
   else {
-    rollover5d = false;
+    rollover3e = false;
   }
-  if (dragging5d) {
-    dx5 = mouseX + offsetX5d;
-    dy5= mouseY + offsetY5d;
+  if (dragging3e) {
+    ex3 = mouseX + offsetX3e;
+    ey3= mouseY + offsetY3e;
   }
 
-  var d3 = dist(mouseX, mouseY, dx3, dy3)
+  var d3 = dist(mouseX, mouseY, ex, ey)
   if (d3 < wid / 2) {
-    rollover3d = true;
+    rollovere = true;
   }
   else {
-    rollover3d = false;
+    rollovere = false;
   }
-  if (dragging3d) {
-    dx3 = mouseX + offsetX3d;
-    dy3 = mouseY + offsetY3d;
+  if (dragginge) {
+    ex = mouseX + offsetXe;
+    ey = mouseY + offsetYe;
   }
  
 
@@ -3061,15 +3276,15 @@ function p6() {
 
   //right ciicle feedback
   var depdis= dist(mouseX, mouseY, depx, depy)
-  if (draggingd == true && depdis < wid/2){
+  if (dragging5e == true && depdis < wid/2){
     fill(g);
     stroke(g);
     strokeWeight(3);
     ellipse(depx, depy, wid, hei, 300);
     dinger(); 
   }
-  var dis2 = dist(dx, dy, depx, depy)
-  if (draggingd == false && dis2 < wid/2 && rolloverd == false){
+  var dis2 = dist(ex5, ey5, depx, depy)
+  if (dragging5e == false && dis2 < wid/2 && rollover5e == false){
     tracking++;
   }
 
@@ -3100,7 +3315,7 @@ function p6() {
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -3123,16 +3338,18 @@ text('PROGRESS:', trx-20, windowHeight-50)
   ellipse(windowWidth-220, windowHeight-30, 20)
   ellipse(windowWidth-190, windowHeight-30, 20)
   ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
   strokeWeight(2)
   stroke(r)
   fill(g)
   
-  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+
   strokeWeight(1)
   stroke(g)
   fill(w)
 
-  ellipse(windowWidth-100, windowHeight-30, 20)
+ 
   ellipse(windowWidth-70, windowHeight-30, 20)
   ellipse(windowWidth-40, windowHeight-30, 20)
   ellipse(windowWidth-10, windowHeight-30, 20)
@@ -3142,16 +3359,16 @@ text('PROGRESS:', trx-20, windowHeight-50)
 
   //rightartist    
   imageMode(CENTER, CENTER)
-  image(drake, dx, dy, wid, hei);
+  image(mack, ex5, ey5, wid, hei);
   //wrongartists
-  image(lw, dx3, dy3, wid, hei);
-  image(future, dx5, dy5, wid, hei);
+  image(wiz, ex3, ey3, wid, hei);
+  image(yg, ex, ey, wid, hei);
 
  
 
 /////////////////////////right answer feedback
 
-  if (mouseX > windowWidth / 2 + 200 && draggingd == true) {
+  if (mouseX > windowWidth / 2 + 200 && dragging5e == true) {
     console.log('yay')
 
     fill(g)
@@ -3167,7 +3384,7 @@ dinger();
 
 
   //wrong answer feedback
-  if (mouseX > windowWidth / 2 && dragging5d == true || mouseX > windowWidth / 2 && dragging3d == true) {
+  if (mouseX > windowWidth / 2 && dragging3e == true || mouseX > windowWidth / 2 && dragginge == true) {
     console.log('nay')
 noStroke();
     fill(r)
@@ -3193,6 +3410,7 @@ noStroke();
   // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
   text('Artist', artx, hi)
 }
+
 function p6a() {
 
   background(w)
@@ -3216,7 +3434,7 @@ function p6a() {
  
 
   ///////////////AUDIO PLAY VISUAL
-  completion = motto.currentTime() / motto.duration();
+  completion = thriftsh.currentTime() / thriftsh.duration();
   fill(g)
   rect(windowWidth / 2 + 350, 300, 200, 5)
   noStroke()
@@ -3227,43 +3445,1182 @@ function p6a() {
   ///////////////////Object Drag
   //////HEADS
   //right head (drake)
-  var d = dist(mouseX, mouseY, dx2, dy2)
+  var d = dist(mouseX, mouseY, ex6, ey6)
   if (d < wid / 2) {
-    rollover2d = true;
+    rollover6e = true;
     console.log('u r in bubble')
   }
   else {
-    rollover2d = false;
+    rollover6e = false;
   }
-  if (dragging2d) {
-    dx2 = mouseX + offsetX2d;
-    dy2 = mouseY + offsetY2d;
+  if (dragging6e) {
+    ex6 = mouseX + offsetX6e;
+    ey6 = mouseY + offsetY6e;
   }
 
 
   //////////////// wrong head
-  var d2 = dist(mouseX, mouseY, dx6, dy6)
+  var d2 = dist(mouseX, mouseY, ex4, ey4)
   if (d2 < wid / 2) {
-    rollover6d = true;
+    rollover4e = true;
   }
   else {
-    rollover6d = false;
+    rollover4e = false;
   }
-  if (dragging6d) {
-    dx6 = mouseX + offsetX6d;
-    dy6= mouseY + offsetY6d;
+  if (dragging4e) {
+    ex4 = mouseX + offsetX4e;
+    ey4= mouseY + offsetY4e;
   }
 
-  var d3 = dist(mouseX, mouseY, dx4, dy4)
+  var d3 = dist(mouseX, mouseY, ex2, ey2)
   if (d3 < wid / 2) {
-    rollover4d = true;
+    rollover2e = true;
   }
   else {
-    rollover4d = false;
+    rollover2e = false;
   }
-  if (dragging4d) {
-    dx4 = mouseX + offsetX4d;
-    dy4 = mouseY + offsetY4d;
+  if (dragging2e) {
+    ex2 = mouseX + offsetX2e;
+    ey2 = mouseY + offsetY2e;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(r);
+  strokeWeight(3);
+  rect(depx, depy, wid , hei);
+
+  //right rect feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (dragging6e == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    rect(depx, depy, wid , hei);
+    dinger(); 
+  }
+  var dis2 = dist(ex6, ey6, depx, depy)
+  if (dragging6e == false && dis2 < wid/2 && rollover6e == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('2/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+  
+  ellipse(windowWidth-100, windowHeight-30, 20)
+
+  strokeWeight(1)
+  stroke(g)
+  fill(w)
+
+ 
+  ellipse(windowWidth-70, windowHeight-30, 20)
+  ellipse(windowWidth-40, windowHeight-30, 20)
+  ellipse(windowWidth-10, windowHeight-30, 20)
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(heist, ex6, ey6, wid, hei);
+  //wrongartists
+  image(wattba, ex4, ey4, wid, hei);
+  image(fetty, ex2, ey2, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && dragging6e == true) {
+    console.log('yay')
+
+    fill(g)
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging4e == true || mouseX > windowWidth / 2 && dragging2e == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40)
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Album', artx, hi)
+}
+//macklemore FACT
+function fact6() {
+  background(g)
+  button2.hide();
+  button.hide();
+
+  /////////////////////////////visuals
+  ///Page
+  imageMode(CENTER, CENTER)
+  image(logo, sq, windowHeight - windowHeight + 100, 240, 60)
+
+  
+  ////NEXT TRACK
+  fill(w);
+  stroke(g);
+  strokeWeight(1);
+  rectMode(CENTER,CENTER)
+  rect(nx, ny, 250, 40, 10);
+  fill(g);
+  noStroke();
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
+
+console.log(mouseY)
+
+  var n = dist(mouseX, mouseY, nx, ny)
+  if (n < 250 && mouseY > 412 && mouseY <453){
+    inNext = true;
+    console.log('in rect')
+  }else {
+inNext = false;
+  }
+
+fill(r);
+  stroke(w);
+  strokeWeight(3)
+  textSize(30);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  text('"THRIFT SHOP" BY MACKLEMORE AND RYAN LEWIS', sq, hi  - 150);
+
+
+  textSize(23);
+  fill(w)
+  text('DID YOU KNOW: \n \n MACKLEMORE AND RYAN LEWIS WON 4 GRAMMYS IN 2014 \n (BEST NEW ARTIST, BEST RAP ALBUM, BEST RAP SONG & BEST RAP PERFORMANCE)', sq, hi  - 50);
+
+
+  /////////
+
+  //Page Title & Box
+  fill(w)
+  stroke(g);
+  strokeWeight(2)
+  rectMode(CENTER)
+  rect(90, 25, 170, 40, 200)
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(15)
+  text('MATCH THE TRACK', 90, 25)
+}
+
+//////black and yellow///////
+function p7() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = black.currentTime() / black.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head (drake)
+  var d = dist(mouseX, mouseY, fx3, fy3)
+  if (d < wid / 2) {
+    rollover3f = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rollover3f = false;
+  }
+  if (dragging3f) {
+    fx3 = mouseX + offsetX3f;
+    fy3 = mouseY + offsetY3f;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, fx, fy)
+  if (d2 < wid / 2) {
+    rolloverf = true;
+  }
+  else {
+    rolloverf = false;
+  }
+  if (draggingf) {
+    fx = mouseX + offsetXf;
+    fy= mouseY + offsetYf;
+  }
+
+  var d3 = dist(mouseX, mouseY, fx5, fy5)
+  if (d3 < wid / 2) {
+    rollover5f = true;
+  }
+  else {
+    rollover5f = false;
+  }
+  if (dragging5f) {
+    fx5 = mouseX + offsetX5f;
+    fy5 = mouseY + offsetY5f;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(g);
+  strokeWeight(3);
+  ellipse(depx, depy, wid, hei, 300);
+
+  //right ciicle feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (dragging3f == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    ellipse(depx, depy, wid, hei, 300);
+    dinger(); 
+  }
+  var dis2 = dist(fx3, fy3, depx, depy)
+  if (dragging3f == false && dis2 < wid/2 && rollover3f == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Artist Bubble to Circle', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('1/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+  
+  ellipse(windowWidth-70, windowHeight-30, 20)
+
+  strokeWeight(1)
+  stroke(g)
+  fill(w)
+
+  ellipse(windowWidth-40, windowHeight-30, 20)
+  ellipse(windowWidth-10, windowHeight-30, 20)
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(wiz, fx3, fy3, wid, hei);
+  //wrongartists
+  image(yg, fx, fy, wid, hei);
+  image(lw, fx5, fy5, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && dragging3f == true) {
+    console.log('yay')
+
+    fill(g)
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging5f == true || mouseX > windowWidth / 2 && draggingf == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40)
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Artist', artx, hi)
+}
+
+function p7a() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = black.currentTime() / black.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head
+  var d = dist(mouseX, mouseY, fx4, fy4)
+  if (d < wid / 2) {
+    rollover4f = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rollover4f = false;
+  }
+  if (dragging4f) {
+    fx4 = mouseX + offsetX4f;
+    fy4 = mouseY + offsetY4f;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, fx2, fy2)
+  if (d2 < wid / 2) {
+    rollover2f = true;
+  }
+  else {
+    rollover2f = false;
+  }
+  if (dragging2f) {
+    fx2 = mouseX + offsetX2f;
+    fy2= mouseY + offsetY2f;
+  }
+
+  var d3 = dist(mouseX, mouseY, fx6, fy6)
+  if (d3 < wid / 2) {
+    rollover6f = true;
+  }
+  else {
+    rollover6f = false;
+  }
+  if (dragging6f) {
+    fx6 = mouseX + offsetX6f;
+    fy6 = mouseY + offsetY6f;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(r);
+  strokeWeight(3);
+  rect(depx, depy, wid , hei);
+
+  //right rct feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (dragging4f == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    rect(depx, depy, wid , hei);
+    dinger(); 
+  }
+  var dis2 = dist(fx4, fy4, depx, depy)
+  if (dragging4f == false && dis2 < wid/2 && rollover4f == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('2/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+  
+  ellipse(windowWidth-70, windowHeight-30, 20)
+
+  strokeWeight(1)
+  stroke(g)
+  fill(w)
+
+  ellipse(windowWidth-40, windowHeight-30, 20)
+  ellipse(windowWidth-10, windowHeight-30, 20)
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(rp, fx4, fy4, wid, hei);
+  //wrongartists
+  image(krazy, fx2, fy2, wid, hei);
+  image(damn, fx6, fy6, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && dragging4f == true) {
+    console.log('yay')
+
+    fill(g)
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging2f == true || mouseX > windowWidth / 2 && dragging6f == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40)
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Album', artx, hi)
+}
+//wiz FACT
+function fact7() {
+  background(g)
+  button2.hide();
+  button.hide();
+
+  /////////////////////////////visuals
+  ///Page
+  imageMode(CENTER, CENTER)
+  image(logo, sq, windowHeight - windowHeight + 100, 240, 60)
+
+  
+  ////NEXT TRACK
+  fill(w);
+  stroke(g);
+  strokeWeight(1);
+  rectMode(CENTER,CENTER)
+  rect(nx, ny, 250, 40, 10);
+  fill(g);
+  noStroke();
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
+
+console.log(mouseY)
+
+  var n = dist(mouseX, mouseY, nx, ny)
+  if (n < 250 && mouseY > 412 && mouseY <453){
+    inNext = true;
+    console.log('in rect')
+  }else {
+inNext = false;
+  }
+
+fill(r);
+  stroke(w);
+  strokeWeight(3)
+  textSize(30);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  text('"BLACK AND YELLOW" BY WIZ KHALIFA', sq, hi  - 150);
+
+
+  textSize(23);
+  fill(w)
+  text('DID YOU KNOW: \n \n THE PITTSBURGH STEELERS USED "BLACK AND YELLOW" AS THEIR FIGHT SONG FOR SUPERBOWL XLV IN 2011.', sq, hi  - 50);
+
+
+  /////////
+
+  //Page Title & Box
+  fill(w)
+  stroke(g);
+  strokeWeight(2)
+  rectMode(CENTER)
+  rect(90, 25, 170, 40, 200)
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(15)
+  text('MATCH THE TRACK', 90, 25)
+}
+
+//////trap queen///////
+function p8() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = trap.currentTime() / trap.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head (drake)
+  var d = dist(mouseX, mouseY, gx, gy)
+  if (d < wid / 2) {
+    rolloverg = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rolloverg = false;
+  }
+  if (draggingg) {
+    gx = mouseX + offsetXg;
+    gy = mouseY + offsetYg;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, gx3, gy3)
+  if (d2 < wid / 2) {
+    rollover3g = true;
+  }
+  else {
+    rollover3g = false;
+  }
+  if (dragging3g) {
+    gx3 = mouseX + offsetX3g;
+    gy3= mouseY + offsetY3g;
+  }
+
+  var d3 = dist(mouseX, mouseY, gx5, gy5)
+  if (d3 < wid / 2) {
+    rollover5g = true;
+  }
+  else {
+    rollover5g = false;
+  }
+  if (dragging5g) {
+    gx5 = mouseX + offsetX5g;
+    gy5 = mouseY + offsetY5g;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(g);
+  strokeWeight(3);
+  ellipse(depx, depy, wid, hei, 300);
+
+  //right ciicle feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (draggingg == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    ellipse(depx, depy, wid, hei, 300);
+    dinger(); 
+  }
+  var dis2 = dist(gx, gy, depx, depy)
+  if (draggingg == false && dis2 < wid/2 && rolloverg == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Artist Bubble to Circle', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('1/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+  ellipse(windowWidth-70, windowHeight-30, 20)
+
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+
+  ellipse(windowWidth-40, windowHeight-30, 20)
+
+  strokeWeight(1)
+  stroke(g)
+  fill(w)
+
+  ellipse(windowWidth-10, windowHeight-30, 20)
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(fw, gx, gy, wid, hei);
+  //wrongartists
+  image(yg, gx3, gy3, wid, hei);
+  image(future, gx5, gy5, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && draggingg == true) {
+    console.log('yay')
+
+    fill(g)
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging5g == true || mouseX > windowWidth / 2 && dragging3g == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40)
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Artist', artx, hi)
+}
+
+function p8a() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = trap.currentTime() / trap.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head (drake)
+  var d = dist(mouseX, mouseY, gx6, gy6)
+  if (d < wid / 2) {
+    rollover6g = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rollover6g = false;
+  }
+  if (dragging6g) {
+    gx6 = mouseX + offsetX6g;
+    gy6 = mouseY + offsetY6g;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, gx4, gy4)
+  if (d2 < wid / 2) {
+    rollover4g = true;
+  }
+  else {
+    rollover4g = false;
+  }
+  if (dragging4g) {
+    gx4 = mouseX + offsetX4g;
+    gy4= mouseY + offsetY4g;
+  }
+
+  var d3 = dist(mouseX, mouseY, gx2, gy2)
+  if (d3 < wid / 2) {
+    rollover2g = true;
+  }
+  else {
+    rollover2g = false;
+  }
+  if (dragging2g) {
+    gx2 = mouseX + offsetX2g;
+    gy2 = mouseY + offsetY2g;
   }
  
 
@@ -3311,15 +4668,331 @@ function p6a() {
 
   //right ciicle feedback
   var depdis= dist(mouseX, mouseY, depx, depy)
-  if (dragging2d == true && depdis < wid/2){
+  if (dragging6g == true && depdis < wid/2){
     fill(g);
     stroke(g);
     strokeWeight(3);
     rect(depx, depy, wid , hei);
-    dinger();
+    dinger(); 
   }
-  var dis2 = dist(dx2, dy2, depx, depy)
-  if (dragging2d == false && dis2 < wid/2 && rollover2d == false){
+  var dis2 = dist(gx6, gy6, depx, depy)
+  if (dragging6g == false && dis2 < wid/2 && rollover6g == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('2/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+  ellipse(windowWidth-70, windowHeight-30, 20)
+
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+
+  ellipse(windowWidth-40, windowHeight-30, 20)
+
+  strokeWeight(1)
+  stroke(g)
+  fill(w)
+
+  ellipse(windowWidth-10, windowHeight-30, 20)
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(fetty, gx6, gy6, wid, hei);
+  //wrongartists
+  image(bp3, gx4, gy4, wid, hei);
+  image(damn, gx2, gy2, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && dragging6g == true) {
+    console.log('yay')
+
+    fill(g)
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging4g == true || mouseX > windowWidth / 2 && dragging2g == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40)
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Album', artx, hi)
+}
+//FETTY FACT
+function fact8() {
+  background(g)
+  button2.hide();
+  button.hide();
+
+  /////////////////////////////visuals
+  ///Page
+  imageMode(CENTER, CENTER)
+  image(logo, sq, windowHeight - windowHeight + 100, 240, 60)
+
+  
+  ////NEXT TRACK
+  fill(w);
+  stroke(g);
+  strokeWeight(1);
+  rectMode(CENTER,CENTER)
+  rect(nx, ny, 250, 40, 10);
+  fill(g);
+  noStroke();
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
+
+console.log(mouseY)
+
+  var n = dist(mouseX, mouseY, nx, ny)
+  if (n < 250 && mouseY > 412 && mouseY <453){
+    inNext = true;
+    console.log('in rect')
+  }else {
+inNext = false;
+  }
+
+fill(r);
+  stroke(w);
+  strokeWeight(3)
+  textSize(30);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  text('"TRAP QUEEN" BY FETTY WAP', sq, hi  - 150);
+
+
+  textSize(23);
+  fill(w)
+  text('DID YOU KNOW: \n \n FETTY WAP WAS AWARDED THE “ARTIST TO WATCH” AWARD AT THE 2015 MTV VMAs.', sq, hi  - 50);
+
+
+  /////////
+
+  //Page Title & Box
+  fill(w)
+  stroke(g);
+  strokeWeight(2)
+  rectMode(CENTER)
+  rect(90, 25, 170, 40, 200)
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(15)
+  text('MATCH THE TRACK', 90, 25)
+}
+
+//////myhitta///////
+function p9() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = hitta.currentTime() / hitta.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head (drake)
+  var d = dist(mouseX, mouseY, hx5, hy5)
+  if (d < wid / 2) {
+    rollover5h = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rollover5h = false;
+  }
+  if (dragging5h) {
+   hx5 = mouseX + offsetX5h;
+  hy5 = mouseY + offsetY5h;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, hx3, hy3)
+  if (d2 < wid / 2) {
+    rollover3h = true;
+  }
+  else {
+    rollover3h = false;
+  }
+  if (dragging3h) {
+    hx3 = mouseX + offsetX3h;
+    hy3= mouseY + offsetY3h;
+  }
+
+  var d3 = dist(mouseX, mouseY, hx, hy)
+  if (d3 < wid / 2) {
+    rolloverh = true;
+  }
+  else {
+    rolloverh = false;
+  }
+  if (draggingh) {
+    hx = mouseX + offsetXh;
+    hy = mouseY + offsetYh;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(g);
+  strokeWeight(3);
+  ellipse(depx, depy, wid, hei, 300);
+
+  //right ciicle feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (dragging5h == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    ellipse(depx, depy, wid, hei, 300);
+    dinger(); 
+  }
+  var dis2 = dist(hx5, hy5, depx, depy)
+  if (dragging5h == false && dis2 < wid/2 && rollover5h == false){
     tracking++;
   }
 
@@ -3350,7 +5023,7 @@ function p6a() {
   textAlign(CENTER,CENTER)
 
 ////////// 1/2 and Progress Bubbles
-translate(20, 0)
+translate(20, 10)
 trx = windowWidth-50
 trt = 20
 fill(g);
@@ -3364,47 +5037,48 @@ text('PROGRESS:', trx-20, windowHeight-50)
   rect(trx, trt, 35, 35, 30)
   noStroke();
   fill(g);
-  text('2/2', trx, trt)
+  text('1/2', trx, trt)
   ///Progress bubbles
   translate(-30, 0);
   strokeWeight(2)
   noStroke();
   fill(g)
+
   ellipse(windowWidth-220, windowHeight-30, 20)
   ellipse(windowWidth-190, windowHeight-30, 20)
   ellipse(windowWidth-160, windowHeight-30, 20)
-  strokeWeight(2)
-  stroke(r)
-  fill(g)
-  
   ellipse(windowWidth-130, windowHeight-30, 20)
-  strokeWeight(1)
-  stroke(g)
-  fill(w)
-
   ellipse(windowWidth-100, windowHeight-30, 20)
   ellipse(windowWidth-70, windowHeight-30, 20)
   ellipse(windowWidth-40, windowHeight-30, 20)
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+
   ellipse(windowWidth-10, windowHeight-30, 20)
+
+ 
+  
   //////////////////Photos of Albums and Artists
 
   translate(30, 0)
 
   //rightartist    
   imageMode(CENTER, CENTER)
-  image(tc, dx2, dy2, wid, hei);
+  image(yg, hx5, hy5, wid, hei);
   //wrongartists
-  image(wattba, dx6, dy6, wid, hei);
-  image(fetty, dx4, dy4, wid, hei);
+  image(lw, hx3, hy3, wid, hei);
+  image(jay, hx, hy, wid, hei);
 
  
 
 /////////////////////////right answer feedback
 
-  if (mouseX > windowWidth / 2 + 200 && dragging2d == true) {
+  if (mouseX > windowWidth / 2 + 200 && dragging5h == true) {
     console.log('yay')
 
     fill(g)
+    noStroke();
     rectMode(CENTER)
     rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
     fill(w)
@@ -3417,7 +5091,7 @@ dinger();
 
 
   //wrong answer feedback
-  if (mouseX > windowWidth / 2 && dragging4d == true || mouseX > windowWidth / 2 && dragging6d == true) {
+  if (mouseX > windowWidth / 2 && draggingh == true || mouseX > windowWidth / 2 && dragging3h == true) {
     console.log('nay')
 noStroke();
     fill(r)
@@ -3439,12 +5113,266 @@ noStroke();
   // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
   // noStroke();
   fill(g);
-  textSize(40)
+  textSize(40);
+  noStroke();
+  // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
+  text('Artist', artx, hi)
+}
+function p9a() {
+
+  background(w)
+  textFont(myr);
+
+  ///////////////////////page interaction
+  /////half gray
+
+  if (mouseX > windowWidth / 2) {
+    rectMode(CENTER, CENTER);
+    noStroke();
+    fill(231, 231, 231, 500);
+
+    rect(windowWidth / 2 + 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  } else {
+    noStroke()
+    fill(240, 240, 240)
+    rect(windowWidth / 2 - 340, windowHeight / 2, windowWidth / 2, windowHeight);
+  }
+
+ 
+
+  ///////////////AUDIO PLAY VISUAL
+  completion = hitta.currentTime() / hitta.duration();
+  fill(g)
+  rect(windowWidth / 2 + 350, 300, 200, 5)
+  noStroke()
+  fill(r)
+  ellipse((completion * 200) + windowWidth / 2 + 250, 300, 30, 30);
+
+
+  ///////////////////Object Drag
+  //////HEADS
+  //right head (drake)
+  var d = dist(mouseX, mouseY, hx4, hy4)
+  if (d < wid / 2) {
+    rollover4h = true;
+    console.log('u r in bubble')
+  }
+  else {
+    rollover4h = false;
+  }
+  if (dragging4h) {
+   hx4 = mouseX + offsetX4h;
+  hy4 = mouseY + offsetY4h;
+  }
+
+
+  //////////////// wrong head
+  var d2 = dist(mouseX, mouseY, hx6, hy6)
+  if (d2 < wid / 2) {
+    rollover6h = true;
+  }
+  else {
+    rollover6h = false;
+  }
+  if (dragging6h) {
+    hx6 = mouseX + offsetX6h;
+    hy6= mouseY + offsetY6h;
+  }
+
+  var d3 = dist(mouseX, mouseY, hx2, hy2)
+  if (d3 < wid / 2) {
+    rollover2h = true;
+  }
+  else {
+    rollover2h = false;
+  }
+  if (dragging2h) {
+    hx2 = mouseX + offsetX2h;
+    hy2 = mouseY + offsetY2h;
+  }
+ 
+
+  /////////////////////////////visuals
+  ///Page
+  stroke(r)
+  strokeWeight(3)
+  line(sq, 0, sq, windowHeight)
+  imageMode(CENTER, CENTER)
+  image(logo, sq, hi, 240, 60)
+
+
+//   ////NEXT TRACK
+//   fill(w);
+//   stroke(r);
+//   strokeWeight(3);
+//   rectMode(CENTER,CENTER)
+//   rect(nx, ny, 250, 40, 10);
+//   fill(g);
+//   noStroke();
+//   textSize(20);
+//   text('PRESS To Continue', nx, ny);
+
+// // console.log(mouseY)
+
+//   var n = dist(mouseX, mouseY, nx, ny)
+//   if (n < 250 && mouseY > 412 && mouseY <453){
+//     inNext = true;
+//     console.log('in rect')
+//   }else {
+// inNext = false;
+//   }
+
+  /////// Song Name, Boxes, Etc
+  // fill(g);
+  // noStroke();
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text('"I LIKE IT" BY', (windowWidth / 2) - 280, ((windowHeight / 2) - (145)));
+
+  fill(w);
+  stroke(r);
+  strokeWeight(3);
+  rect(depx, depy, wid , hei);
+
+  //right ciicle feedback
+  var depdis= dist(mouseX, mouseY, depx, depy)
+  if (dragging4h == true && depdis < wid/2){
+    fill(g);
+    stroke(g);
+    strokeWeight(3);
+    rect(depx, depy, wid , hei);
+    dinger(); 
+  }
+  var dis2 = dist(hx4, hy4, depx, depy)
+  if (dragging4h == false && dis2 < wid/2 && rollover4h == false){
+    tracking++;
+  }
+
+  // text('ON', (windowWidth / 2) + 150, ((windowHeight / 2) - (145)));
+
+  // fill(w);
+  // stroke(r);
+  // strokeWeight(1);
+  // rect(windowWidth / 2 + 300, windowHeight / 2 - 145, wid - 10, hei - 10, 10);
+
+  /////////
+
+
+//Title
+  fill(g);
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(13)
+  text('MATCH THE TRACK', 65, 15)
+
+//Instructions
+  fill(r);
+  noStroke();
+  textAlign(LEFT);
+  textSize(15)
+  text('Press Play for Audio \nDrag Album Box to Square', 10, 45)
+
+  textAlign(CENTER,CENTER)
+
+////////// 1/2 and Progress Bubbles
+translate(20, 10)
+trx = windowWidth-50
+trt = 20
+fill(g);
+noStroke();
+textSize(16)
+text('PROGRESS:', trx-20, windowHeight-50)
+  fill(w);
+  strokeWeight(3);
+  stroke(g)
+  textSize(20)
+  rect(trx, trt, 35, 35, 30)
+  noStroke();
+  fill(g);
+  text('2/2', trx, trt)
+  ///Progress bubbles
+  translate(-30, 0);
+  strokeWeight(2)
+  noStroke();
+  fill(g)
+
+  ellipse(windowWidth-220, windowHeight-30, 20)
+  ellipse(windowWidth-190, windowHeight-30, 20)
+  ellipse(windowWidth-160, windowHeight-30, 20)
+  ellipse(windowWidth-130, windowHeight-30, 20)
+  ellipse(windowWidth-100, windowHeight-30, 20)
+  ellipse(windowWidth-70, windowHeight-30, 20)
+  ellipse(windowWidth-40, windowHeight-30, 20)
+  strokeWeight(2)
+  stroke(r)
+  fill(g)
+
+  ellipse(windowWidth-10, windowHeight-30, 20)
+
+ 
+  
+  //////////////////Photos of Albums and Artists
+
+  translate(30, 0)
+
+  //rightartist    
+  imageMode(CENTER, CENTER)
+  image(krazy, hx4, hy4, wid, hei);
+  //wrongartists
+  image(damn, hx6, hy6, wid, hei);
+  image(bp3, hx2, hy2, wid, hei);
+
+ 
+
+/////////////////////////right answer feedback
+
+  if (mouseX > windowWidth / 2 + 200 && dragging4h == true) {
+    console.log('yay')
+
+    fill(g)
+    noStroke();
+    rectMode(CENTER)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    textSize(30)
+    text('RIGHT!', windowWidth / 2, windowHeight / 2)
+dinger();
+    //not working to make ding only play once
+    }
+
+
+
+  //wrong answer feedback
+  if (mouseX > windowWidth / 2 && dragging2h == true || mouseX > windowWidth / 2 && dragging6h == true) {
+    console.log('nay')
+noStroke();
+    fill(r)
+    rect(windowWidth / 2, windowHeight / 2, 350, 200, 200)
+    fill(w)
+    text('WRONG! \n \n TRY AGAIN!', windowWidth / 2, windowHeight / 2)
+    buzzer();
+
+
+  }
+  //Albums and Artists Titles
+  // fill(g)
+  // noStroke();
+  // fill(w)
+  // stroke(g);
+  // strokeWeight(2)
+  // rectMode(CENTER)
+  // rect((windowWidth / 2) / 2, windowHeight / 2 + 30, 100, 30, 200)
+  // rect(((windowWidth / 2) + (windowWidth / 2) / 2), windowHeight / 2 + 30, 100, 30, 200)
+  // noStroke();
+  fill(g);
+  textSize(40);
+  noStroke();
   // text('Albums', (windowWidth / 2) / 2, windowHeight / 2 + 30)
   text('Album', artx, hi)
 }
-//drake FACT
-function fact6() {
+
+//YG FACT
+function fact9() {
   background(g)
   button2.hide();
   button.hide();
@@ -3463,8 +5391,8 @@ function fact6() {
   rect(nx, ny, 250, 40, 10);
   fill(g);
   noStroke();
-  textSize(20);
-  text('PRESS To Continue', nx, ny);
+  textSize(15);
+  text('Press RIGHT ARROW To Continue', nx, ny);
 
 console.log(mouseY)
 
@@ -3482,12 +5410,12 @@ fill(r);
   textSize(30);
   noStroke();
   textAlign(CENTER, CENTER);
-  text('"THE MOTTO FT. LIL WAYNE" BY DRAKE', sq, hi  - 150);
+  text('"MY HITTA FT RICH HOMIE QUAN" BY YG', sq, hi  - 150);
 
 
   textSize(23);
   fill(w)
-  text('DID YOU KNOW: \n \n THE ALBUM “TAKE CARE” (DEBUTED NOV. 2011) RECENTLY BROKE THE RECORD FOR\n MOST WEEKS ON THE TOP R&B/HIP-HOP ALBUMS CHART (186 WEEKS)', sq, hi  - 50);
+  text('DID YOU KNOW: \n \n “MY HITTA” INTERPOLATES THE REFRAIN OF C-MURDERs 1999 SONG, “DOWN FOR MY Ns”.', sq, hi  - 50);
 
 
   /////////
@@ -3505,8 +5433,36 @@ fill(r);
   text('MATCH THE TRACK', 90, 25)
 }
 
+// function conc(){
+//   imageMode(CENTER, CENTER)
+//   image(logo, windowWidth/2, windowHeight - windowHeight + 100, 240, 60)
 
 
+
+
+//   noFill();
+//   stroke(w);
+//   rect(windowWidth / 2, windowHeight / 2, 890, 250, 200)
+
+//   textSize(23);
+//   fill(w);
+//   noStroke();
+//   text('YOU MIGHT BE HIP! \n CHECK OUT THE GET HIP GAME SHOW ON THE POPXTWO YOUTUBE CHANNEL \n \n ENJOY!', (windowWidth / 2), (windowHeight / 2));
+//   createA('https://www.youtube.com/POPXTWO', 'CLICK HERE TO PROCEED')
+
+//   //Page Title & Box
+//   fill(w)
+//   stroke(g);
+//   strokeWeight(2)
+//   rectMode(CENTER)
+//   rect(90, 25, 170, 40, 200)
+//   fill(g);
+//   noStroke();
+//   textAlign(CENTER, CENTER);
+//   textSize(15)
+//   text('MATCH THE TRACK', 90, 25)
+
+// }
 
 //click
 function mousePressed() {
@@ -3720,8 +5676,8 @@ if (rollover6d == true) {
   // Right Movement
   if (rollover3e == true) {
     dragging3e = true;
-    offsetX3e = dxe - mouseX;
-    offsetY3e = dye - mouseY;
+    offsetX3e = ex3 - mouseX;
+    offsetY3e = ey3 - mouseY;
   } else { rollover3e = false }
 
 // right album
@@ -3765,8 +5721,8 @@ if (rollover6e == true) {
   // Right Movement
   if (rollover3f == true) {
     dragging3f = true;
-    offsetX3f = dxf - mouseX;
-    offsetY3f = dyf - mouseY;
+    offsetX3f = fx3 - mouseX;
+    offsetY3f = fx3 - mouseY;
   } else { rollover3f = false }
 
 // right album
@@ -3790,9 +5746,97 @@ if (rollover6f == true) {
   offsetY6f = fy6 - mouseY;
 } else { rollover6f = false} 
 
+////////////////////////artist 7
+
+  //  right Head Movement
+  if (rolloverg == true) {
+    draggingg = true;
+    offsetXg = gx - mouseX;
+    offsetYg = gy - mouseY;
+  } else { rolloverg = false }
+
+  // album
+  if (rollover2g == true) {
+    dragging2g = true;
+    offsetX2g = gx2 - mouseX;
+    offsetY2g = gy2 - mouseY;
+  } else { rollover2g = false }
+  
+
+  // Right Movement
+  if (rollover3g == true) {
+    dragging3g = true;
+    offsetX3g = gx3 - mouseX;
+    offsetY3g = gx3 - mouseY;
+  } else { rollover3g = false }
+
+// right album
+if (rollover4g == true) {
+  dragging4g = true;
+  offsetX4g = gx4 - mouseX;
+  offsetY4g = gy4 - mouseY;
+} else { rollover4g = false }
+  
+
+  if (rollover5g == true) {
+    dragging5g = true;
+    offsetX5g = gx5 - mouseX;
+    offsetY5g = gy5 - mouseY;
+  } else { rollover5g = false }
+
+//wrong album
+if (rollover6g == true) {
+  dragging6g = true;
+  offsetX6g = gx6 - mouseX;
+  offsetY6g = gy6 - mouseY;
+} else { rollover6g = false} 
+
+////////////////////////artist 8
+
+  //  right Head Movement
+  if (rolloverh == true) {
+    draggingh = true;
+    offsetXh = hx - mouseX;
+    offsetYh = hy - mouseY;
+  } else { rolloverh = false }
+
+  // album
+  if (rollover2h == true) {
+    dragging2h = true;
+    offsetX2h = hx2 - mouseX;
+    offsetY2h = hy2 - mouseY;
+  } else { rollover2h = false }
+  
+
+  // Right Movement
+  if (rollover3h == true) {
+    dragging3h = true;
+    offsetX3h = hx3 - mouseX;
+    offsetY3h = hx3 - mouseY;
+  } else { rollover3h = false }
+
+// right album
+if (rollover4h == true) {
+  dragging4h = true;
+  offsetX4h = hx4 - mouseX;
+  offsetY4h = hy4 - mouseY;
+} else { rollover4h = false }
+  
+
+  if (rollover5h == true) {
+    dragging5h = true;
+    offsetX5h = hx5 - mouseX;
+    offsetY5h = hy5 - mouseY;
+  } else { rollover5h = false }
+
+//wrong album
+if (rollover6h == true) {
+  dragging6h = true;
+  offsetX6h = hx6 - mouseX;
+  offsetY6h = hy6 - mouseY;
+} else { rollover6h = false} 
 }
 
-//drop
 function mouseReleased() {
   dragging = false;
   dragging2 = false;
@@ -3836,5 +5880,451 @@ function mouseReleased() {
   dragging5f = false;
   dragging6f = false;
 
+  draggingg = false;
+  dragging2g = false;
+  dragging3g = false;
+  dragging4g = false;
+  dragging5g = false;
+  dragging6g = false;
+
+  draggingh = false;
+  dragging2h = false;
+  dragging3h = false;
+  dragging4h = false;
+  dragging5h = false;
+  dragging6h = false;
+
   // inNext=true;
+}
+
+function touchStarted(){
+  //text('PRESS FOR NEXT TRACK', windowWidth - 100, windowHeight - 30);
+  
+
+  //movement
+
+  //Cardi B Right Head Movement
+  if (rollover == true) {
+    dragging = true;
+    offsetX = x - mouseX;
+    offsetY = y - mouseY;
+  } else { rollover = false }
+
+  //wrong album
+  if (rollover2 == true) {
+    dragging2 = true;
+    offsetX2 = x2 - mouseX;
+    offsetY2 = y2 - mouseY;
+  } else { rollover2 = false }
+  
+
+  //Kendrick Wrong Movement
+  if (rollover3 == true) {
+    dragging3 = true;
+    offsetX3 = x3 - mouseX;
+    offsetY3 = y3 - mouseY;
+  } else { rollover3 = false }
+
+// right album
+if (rollover4 == true) {
+  dragging4 = true;
+  offsetX4 = x4 - mouseX;
+  offsetY4 = y4 - mouseY;
+} else { rollover4 = false }
+  
+
+  //Macklemore Wrong Movement
+  if (rollover5 == true) {
+    dragging5 = true;
+    offsetX5 = x5 - mouseX;
+    offsetY5 = y5 - mouseY;
+  } else { rollover5 = false }
+
+//wrong album
+if (rollover6 == true) {
+  dragging6 = true;
+  offsetX6 = x6 - mouseX;
+  offsetY6 = y6 - mouseY;
+} else { rollover6 = false }
+ 
+  //strokeWeight(2)
+  stroke(r)
+  ellipse(mouseX, mouseY, 10, 10)
+
+////////////////////////artist 2
+
+  //  Head Movement
+  if (rolloverb == true) {
+    draggingb = true;
+    offsetXb = bx - mouseX;
+    offsetYb = by - mouseY;
+  } else { rolloverb = false }
+
+  //wrong album
+  if (rollover2b == true) {
+    dragging2b = true;
+    offsetX2b = bx2 - mouseX;
+    offsetY2b = by2 - mouseY;
+  } else { rollover2b = false }
+  
+
+  //Kendrick Wrong Movement
+  if (rollover3b == true) {
+    dragging3b = true;
+    offsetX3b = bx3 - mouseX;
+    offsetY3b = by3 - mouseY;
+  } else { rollover3b = false }
+
+// right album
+if (rollover4b == true) {
+  dragging4b = true;
+  offsetX4b = bx4 - mouseX;
+  offsetY4b = by4 - mouseY;
+} else { rollover4b = false }
+  
+
+  if (rollover5b == true) {
+    dragging5b = true;
+    offsetX5b = bx5 - mouseX;
+    offsetY5b = by5 - mouseY;
+  } else { rollover5b = false }
+
+//wrong album
+if (rollover6b == true) {
+  dragging6b = true;
+  offsetX6b = bx6 - mouseX;
+  offsetY6b = by6 - mouseY;
+} else { rollover6b = false }
+ 
+
+////////////////////////artist 3
+
+  //  Head Movement
+  if (rolloverc == true) {
+    draggingc = true;
+    offsetXc = cx - mouseX;
+    offsetYc = cy - mouseY;
+  } else { rolloverc = false }
+
+  //wrong album
+  if (rollover2c == true) {
+    dragging2c = true;
+    offsetX2c = cx2 - mouseX;
+    offsetY2c = cy2 - mouseY;
+  } else { rollover2c = false }
+  
+
+  //Kendrick Right Movement
+  if (rollover3c == true) {
+    dragging3c = true;
+    offsetX3c = cx3 - mouseX;
+    offsetY3c = cy3 - mouseY;
+  } else { rollover3c = false }
+
+// right album
+if (rollover4c == true) {
+  dragging4c = true;
+  offsetX4c = cx4 - mouseX;
+  offsetY4c = cy4 - mouseY;
+} else { rollover4c = false }
+  
+
+  if (rollover5c == true) {
+    dragging5c = true;
+    offsetX5c = cx5 - mouseX;
+    offsetY5c = cy5 - mouseY;
+  } else { rollover5c = false }
+
+//wrong album
+if (rollover6c == true) {
+  dragging6c = true;
+  offsetX6c = cx6 - mouseX;
+  offsetY6c = cy6 - mouseY;
+} else { rollover6c = false }
+ 
+////////////////////////artist 4
+
+  //  right Head Movement
+  if (rolloverd == true) {
+    draggingd = true;
+    offsetXd = dx - mouseX;
+    offsetYd = dy - mouseY;
+  } else { rolloverd = false }
+
+  // album
+  if (rollover2d == true) {
+    dragging2d = true;
+    offsetX2d = dx2 - mouseX;
+    offsetY2d = dy2 - mouseY;
+  } else { rollover2d = false }
+  
+
+  // Right Movement
+  if (rollover3d == true) {
+    dragging3d = true;
+    offsetX3d = dx3 - mouseX;
+    offsetY3d = dy3 - mouseY;
+  } else { rollover3d = false }
+
+// right album
+if (rollover4d == true) {
+  dragging4d = true;
+  offsetX4d = dx4 - mouseX;
+  offsetY4d = dy4 - mouseY;
+} else { rollover4d = false }
+  
+
+  if (rollover5d == true) {
+    dragging5d = true;
+    offsetX5d = dx5 - mouseX;
+    offsetY5d = dy5 - mouseY;
+  } else { rollover5d = false }
+
+//wrong album
+if (rollover6d == true) {
+  dragging6d = true;
+  offsetX6d = dx6 - mouseX;
+  offsetY6d = dy6 - mouseY;
+} else { rollover6d = false }
+ 
+////////////////////////artist 5
+
+  //  right Head Movement
+  if (rollovere == true) {
+    dragginge = true;
+    offsetXe = ex - mouseX;
+    offsetYe = ey - mouseY;
+  } else { rollovere = false }
+
+  // album
+  if (rollover2e == true) {
+    dragging2e = true;
+    offsetX2e = ex2 - mouseX;
+    offsetY2e = ey2 - mouseY;
+  } else { rollover2e = false }
+  
+
+  // Right Movement
+  if (rollover3e == true) {
+    dragging3e = true;
+    offsetX3e = ex3 - mouseX;
+    offsetY3e = ey3 - mouseY;
+  } else { rollover3e = false }
+
+// right album
+if (rollover4e == true) {
+  dragging4e = true;
+  offsetX4e = ex4 - mouseX;
+  offsetY4e = ey4 - mouseY;
+} else { rollover4e = false }
+  
+
+  if (rollover5e == true) {
+    dragging5e = true;
+    offsetX5e = ex5 - mouseX;
+    offsetY5e = ey5 - mouseY;
+  } else { rollover5e = false }
+
+//wrong album
+if (rollover6e == true) {
+  dragging6e = true;
+  offsetX6e = ex6 - mouseX;
+  offsetY6e = ey6 - mouseY;
+} else { rollover6e = false }
+
+////////////////////////artist 6
+
+  //  right Head Movement
+  if (rolloverf == true) {
+    draggingf = true;
+    offsetXf = fx - mouseX;
+    offsetYf = fy - mouseY;
+  } else { rolloverf = false }
+
+  // album
+  if (rollover2f == true) {
+    dragging2f = true;
+    offsetX2f = fx2 - mouseX;
+    offsetY2f = fy2 - mouseY;
+  } else { rollover2f = false }
+  
+
+  // Right Movement
+  if (rollover3f == true) {
+    dragging3f = true;
+    offsetX3f = fx3 - mouseX;
+    offsetY3f = fx3 - mouseY;
+  } else { rollover3f = false }
+
+// right album
+if (rollover4f == true) {
+  dragging4f = true;
+  offsetX4f = fx4 - mouseX;
+  offsetY4f = fy4 - mouseY;
+} else { rollover4f = false }
+  
+
+  if (rollover5f == true) {
+    dragging5f = true;
+    offsetX5f = fx5 - mouseX;
+    offsetY5f = fy5 - mouseY;
+  } else { rollover5f = false }
+
+//wrong album
+if (rollover6f == true) {
+  dragging6f = true;
+  offsetX6f = fx6 - mouseX;
+  offsetY6f = fy6 - mouseY;
+} else { rollover6f = false} 
+
+////////////////////////artist 7
+
+  //  right Head Movement
+  if (rolloverg == true) {
+    draggingg = true;
+    offsetXg = gx - mouseX;
+    offsetYg = gy - mouseY;
+  } else { rolloverg = false }
+
+  // album
+  if (rollover2g == true) {
+    dragging2g = true;
+    offsetX2g = gx2 - mouseX;
+    offsetY2g = gy2 - mouseY;
+  } else { rollover2g = false }
+  
+
+  // Right Movement
+  if (rollover3g == true) {
+    dragging3g = true;
+    offsetX3g = gx3 - mouseX;
+    offsetY3g = gx3 - mouseY;
+  } else { rollover3g = false }
+
+// right album
+if (rollover4g == true) {
+  dragging4g = true;
+  offsetX4g = gx4 - mouseX;
+  offsetY4g = gy4 - mouseY;
+} else { rollover4g = false }
+  
+
+  if (rollover5g == true) {
+    dragging5g = true;
+    offsetX5g = gx5 - mouseX;
+    offsetY5g = gy5 - mouseY;
+  } else { rollover5g = false }
+
+//wrong album
+if (rollover6g == true) {
+  dragging6g = true;
+  offsetX6g = gx6 - mouseX;
+  offsetY6g = gy6 - mouseY;
+} else { rollover6g = false} 
+
+////////////////////////artist 8
+
+  //  right Head Movement
+  if (rolloverh == true) {
+    draggingh = true;
+    offsetXh = hx - mouseX;
+    offsetYh = hy - mouseY;
+  } else { rolloverh = false }
+
+  // album
+  if (rollover2h == true) {
+    dragging2h = true;
+    offsetX2h = hx2 - mouseX;
+    offsetY2h = hy2 - mouseY;
+  } else { rollover2h = false }
+  
+
+  // Right Movement
+  if (rollover3h == true) {
+    dragging3h = true;
+    offsetX3h = hx3 - mouseX;
+    offsetY3h = hx3 - mouseY;
+  } else { rollover3h = false }
+
+// right album
+if (rollover4h == true) {
+  dragging4h = true;
+  offsetX4h = hx4 - mouseX;
+  offsetY4h = hy4 - mouseY;
+} else { rollover4h = false }
+  
+
+  if (rollover5h == true) {
+    dragging5h = true;
+    offsetX5h = hx5 - mouseX;
+    offsetY5h = hy5 - mouseY;
+  } else { rollover5h = false }
+
+//wrong album
+if (rollover6h == true) {
+  dragging6h = true;
+  offsetX6h = hx6 - mouseX;
+  offsetY6h = hy6 - mouseY;
+} else { rollover6h = false} 
+
+}
+
+function touchEnded(){
+  dragging = false;
+  dragging2 = false;
+  dragging3 = false;
+  dragging4 = false;
+  dragging5 = false;
+  dragging6 = false;
+
+  draggingb = false;
+  dragging2b = false;
+  dragging3b = false;
+  dragging4b = false;
+  dragging5b = false;
+  dragging6b = false;
+
+  draggingc = false;
+  dragging2c = false;
+  dragging3c = false;
+  dragging4c = false;
+  dragging5c = false;
+  dragging6c = false;
+
+  draggingd = false;
+  dragging2d = false;
+  dragging3d = false;
+  dragging4d = false;
+  dragging5d = false;
+  dragging6d = false;
+
+  dragginge = false;
+  dragging2e = false;
+  dragging3e = false;
+  dragging4e = false;
+  dragging5e = false;
+  dragging6e = false;
+
+  draggingf = false;
+  dragging2f = false;
+  dragging3f = false;
+  dragging4f = false;
+  dragging5f = false;
+  dragging6f = false;
+
+  draggingg = false;
+  dragging2g = false;
+  dragging3g = false;
+  dragging4g = false;
+  dragging5g = false;
+  dragging6g = false;
+
+  draggingh = false;
+  dragging2h = false;
+  dragging3h = false;
+  dragging4h = false;
+  dragging5h = false;
+  dragging6h = false;
+
+
 }
